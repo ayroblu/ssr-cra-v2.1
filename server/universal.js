@@ -7,8 +7,8 @@ const {renderToString, renderToStaticMarkup} = require('react-dom/server')
 const {StaticRouter} = require('react-router-dom')
 
 const api = require('./api')
-const {default: configureStore} = require('../lib/store')
-const {default: App} = require('../lib/containers/App')
+const {default: configureStore} = require('../build-src/store')
+const {default: App} = require('../build-src/containers/App')
 
 module.exports = function universalLoader(req, res) {
   const filePath = path.resolve(__dirname, '..', 'build', 'index.html')

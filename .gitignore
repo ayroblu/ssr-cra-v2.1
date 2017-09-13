@@ -9,8 +9,8 @@ coverage
 # production
 build
 dist
-server-built
-lib
+build-server
+build-src
 
 # misc
 .DS_Store
