@@ -6,11 +6,14 @@ import { BrowserRouter } from 'react-router-dom'
 import configureStore from './store'
 import './index.css'
 import App from './containers/App'
-import registerServiceWorker from './registerServiceWorker'
+//import registerServiceWorker from './registerServiceWorker'
 
 // Let the reducers handle initial state
 const initialState = {}
 const store = configureStore(initialState)
+if (window.DATA && typeof window.DATA === 'string') {
+  window.DATA=JSON.parse(window.atob(window.DATA))
+}
 
 ReactDOM.render(
   <Provider store={store}>
@@ -20,4 +23,4 @@ ReactDOM.render(
   </Provider>
 , document.getElementById('root')
 )
-registerServiceWorker()
+//registerServiceWorker()
