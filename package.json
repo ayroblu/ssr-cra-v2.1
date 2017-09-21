@@ -23,8 +23,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:dev:server": "NODE_ENV=development babel-node server/index.js",
-    "start:nmdev:server": "NODE_ENV=development nodemon --exec babel-node server/index.js",
+    "start:dev:server": "NODE_ENV=development node server/index.js",
+    "start:nmdev:server": "NODE_ENV=development nodemon server/index.js",
     "start:prod:server": "NODE_ENV=production node server/index.js",
     "now-start": "NODE_ENV=production node server/index.js",
     "babelify": "NODE_ENV=production babel src --out-dir babel-src --copy-files --ignore '**/*.test.js'",
