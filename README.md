@@ -7,15 +7,15 @@ https://medium.com/@benlu/ssr-with-create-react-app-v2-1-ee83fb767327
 Install
 -------
 ```bash
-npm install
-npm run build
-npm run start:server
+yarn install
+yarn build
+yarn start:prod:server
 ```
 
 ### Development
 This just runs create react app, its great!
 ```bash
-npm start
+yarn start
 ```
 
 Limitations
