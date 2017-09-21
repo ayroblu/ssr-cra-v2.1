@@ -1,5 +1,5 @@
 {
-  "name": "ssr-cra-v2",
+  "name": "ssr-cra-v2.1",
   "version": "2.1.0",
   "proxy": "http://localhost:3001",
   "private": true,
@@ -28,6 +28,7 @@
     "start:dev:server": "NODE_ENV=development nodemon server/index.js",
     "start:prod:server": "NODE_ENV=production node server/index.js",
     "now-start": "NODE_ENV=production node server/index.js",
+    "now-build": "npm run build:client && npm run babelify",
     "babelify": "NODE_ENV=production babel src --out-dir babel-src --copy-files --ignore '**/*.test.js'",
     "clean": "rimraf build babel-src",
     "build:client": "react-scripts build",

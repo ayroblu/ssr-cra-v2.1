@@ -26,14 +26,21 @@ module.exports = function universalLoader(req, res) {
 async function serverRender(req, res, htmlData){
   const context = {data: {}, head: [], req, api}
   const store = configureStore()
+  // first
   render(req, store, context)
 
+  if (context.url) {
+    // Somewhere a `<Redirect>` was rendered
+    res.redirect(301, context.url)
+  }
+
+  // handle our data fetching
   const keys = Object.keys(context.data)
   const promises = keys.map(k=>context.data[k])
-
   const resolved = await Promise.all(promises)
   resolved.forEach((r,i)=>context.data[keys[i]]=r)
 
+  //second
   const markup = render(req, store, context)
   const headMarkup = renderHead(context)
 
@@ -41,7 +48,7 @@ async function serverRender(req, res, htmlData){
     // Somewhere a `<Redirect>` was rendered
     res.redirect(301, context.url)
   } else {
-    // we're good, send the response
+    // we're good, add in markup, send the response
     const RenderedApp = htmlData.replace('{{SSR}}', markup)
       .replace('<meta-head/>', headMarkup)
       .replace('{{data}}', new Buffer(JSON.stringify(context.data)).toString('base64'))
