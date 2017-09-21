@@ -1,6 +1,6 @@
 {
-  "name": "ssr-create-react-app-v2",
-  "version": "0.1.0",
+  "name": "ssr-cra-v2",
+  "version": "2.1.0",
   "proxy": "http://localhost:3001",
   "private": true,
   "devDependencies": {
