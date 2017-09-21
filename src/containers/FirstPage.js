@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 
+import favicon from './favicon-512x512.png'
+import thing from './thing.png'
 import {MainApi} from '../api'
 import * as userActions from '../actions/user'
 import './FirstPage.css'
@@ -49,8 +51,10 @@ class FirstPage extends Component {
     const b64 = this.props.staticContext ? 'wait for it' : window.btoa('wait for it')
     const {text, email} = this.props.user
     return (
-      <div className='bold'>
+      <div className='bold FirstPage'>
         <h2>First Page</h2>
+        <img src={favicon} alt='favicon-big' />
+        <img src={thing} alt='thing-inline' />
         <p>{`Email: ${email}`}</p>
         <p>{`Database / delayed Text: ${text}`}</p>
         <p>{`b64: ${b64}`}</p>
