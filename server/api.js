@@ -7,7 +7,7 @@ const db = {
 class MainApi{
   async getMain(){
     return new Promise(y=>setTimeout(()=>{
-      y(db.text[0])
+      y(db.names[0])
     }, 200))
   }
 }

@@ -1,14 +1,9 @@
 const path = require('path')
 const fs = require('fs')
 
-const React = require('react')
-const {Provider} = require('react-redux')
-const {StaticRouter} = require('react-router-dom')
-
 const api = require('./api')
 const {render, renderHead} = require('../babel-src/serverRender')
 const {default: configureStore} = require('../babel-src/store')
-const {default: App} = require('../babel-src/containers/App')
 
 module.exports = function universalLoader(req, res) {
   const filePath = path.resolve(__dirname, '..', 'build', 'index.html')
