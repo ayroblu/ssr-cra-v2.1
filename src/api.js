@@ -1,14 +1,15 @@
 import { apiUrl } from './config'
 
+const prefix = '/api'
+export function getMain(){
+  return fetch(`${apiUrl}${prefix}`).then(r=>r.json())
+}
+
 class Api {
-  constructor(options){
+  constructor(options={}){
     this.apiUrl = apiUrl
     this.prefix = ''
-    if (!options){
-      return
-    }
-    const {token} = options
-    this.token = token
+    Object.assign(this, options)
   }
   getJsonHeaders(){
     return {
@@ -21,16 +22,6 @@ class Api {
     , 'Content-Type': 'application/json'
     }
   }
-  setToken(token){
-    this.token = token
-  }
-  handleUnauthed(res){
-    if (res.status === 401) {
-      return new Promise(()=>{})
-    } else {
-      return res
-    }
-  }
   _buildQueryString(data){
     return '?' + Object.keys(data).map(d=>d+'='+encodeURIComponent(data[d]))
   }
@@ -40,5 +31,9 @@ export class MainApi extends Api{
   constructor(options){
     super(options)
     this.prefix = '/api'
+  }
+  getMain(){
+    return fetch(`${apiUrl}${this.prefix}`)
+      .then(r=>r.json())
   }
 }

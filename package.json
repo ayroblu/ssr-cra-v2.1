@@ -1,6 +1,7 @@
 {
   "name": "ssr-create-react-app-v2",
   "version": "0.1.0",
+  "proxy": "http://localhost:3001",
   "private": true,
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -23,13 +24,13 @@
   "scripts": {
     "start": "react-scripts start",
     "start:dev:server": "NODE_ENV=development babel-node server/index.js",
-    "start:prod:server": "NODE_ENV=production node build-server/index.js",
+    "start:nmdev:server": "NODE_ENV=development nodemon --exec babel-node server/index.js",
+    "start:prod:server": "NODE_ENV=production node server/index.js",
     "now-start": "NODE_ENV=production node server/index.js",
-    "babelify": "yarn babelify:client && yarn babelify:server",
-    "babelify:client": "NODE_ENV=production babel src --out-dir build-src --copy-files --ignore '**/*.test.js'",
-    "babelify:server": "NODE_ENV=production babel server --out-dir build-server --copy-files --ignore '**/*.test.js'",
-    "clean": "rimraf build-src",
-    "build": "react-scripts build",
+    "babelify": "NODE_ENV=production babel src --out-dir babel-src --copy-files --ignore '**/*.test.js'",
+    "clean": "rimraf build babel-src",
+    "build:client": "react-scripts build",
+    "build": "yarn build:client && yarn babelify",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

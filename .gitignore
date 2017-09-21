@@ -9,8 +9,8 @@ coverage
 # production
 build
 dist
-build-server
-build-src
+babel-server
+babel-src
 
 # misc
 .DS_Store

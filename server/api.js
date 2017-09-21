@@ -1,11 +1,16 @@
 const db = {
-  list: [
-    {text: 'First'}
+  names: [
+    {text: 'James'}
+  , {text: 'William'}
   ]
 }
-
-module.exports = {
+class MainApi{
   async getMain(){
-    return db.list[0]
+    return new Promise(y=>setTimeout(()=>{
+      y(db.text[0])
+    }, 200))
   }
+}
+module.exports = {
+  MainApi
 }

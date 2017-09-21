@@ -1,4 +1,4 @@
-let apiUrl = 'http://localhost:3001'
+let apiUrl = ''
 if (process.env.NODE_ENV === 'production') {
   apiUrl = ''
 }

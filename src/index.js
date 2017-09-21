@@ -11,8 +11,10 @@ import App from './containers/App'
 // Let the reducers handle initial state
 const initialState = {}
 const store = configureStore(initialState)
-if (window.DATA && typeof window.DATA === 'string') {
+if (window.DATA && window.DATA !== '{{data}}') {
   window.DATA=JSON.parse(window.atob(window.DATA))
+} else {
+  window.DATA = {}
 }
 
 ReactDOM.render(

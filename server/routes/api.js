@@ -1,13 +1,11 @@
 const express = require('express')
 const router = express.Router()
-router.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-  next()
-})
+const {MainApi} = require('../api')
 
-router.get('/', function(req, res, next) {
-  res.json({})
+router.get('/', async function(req, res, next) {
+  const db = new MainApi()
+  const {text} = await db.getMain()
+  res.json({text, message: 'This came from the api'})
 })
 
 module.exports = router
