@@ -1,7 +1,8 @@
 Server Side Rendering with Create React App
 ===========================================
 
-This is the v2 version of my react app, checkout my article here: https://medium.com/@benlu/ssr-with-create-react-app-v2-1b8b520681d9
+This is the v2.1 version of my react app, checkout my article here: 
+https://medium.com/@benlu/ssr-with-create-react-app-v2-1-ee83fb767327
 
 Install
 -------
